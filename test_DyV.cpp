@@ -74,5 +74,68 @@ int main() {
     int pos10 = BusquedaBinaria_INV('y', v_chars_inv, 0, fin_chars_inv);
     cout << "Buscando 'y': Posicion " << pos10 << endl; // Esperado: -1
 
+    
+
+    //--- PRUEBAS QUICKSORT ---
+
+
+
+    // --- Prueba 1: Vector de Enteros (int) ---
+    cout << "\n--- Prueba QuickSort con Enteros ---" << endl;
+    vector<int> v_int_qs = {56, 12, 91, 2, 38, 23, 72, 8, 16, 5};
+    
+    cout << "Vector (Antes):  { ";
+    for (size_t i = 0; i < v_int_qs.size(); ++i) {
+        cout << v_int_qs[i] << (i < v_int_qs.size() - 1 ? ", " : "");
+    }
+    cout << " }" << endl;
+   
+    QuickSort(v_int_qs, 0, v_int_qs.size() - 1);
+    
+    cout << "Vector (Despues): { ";
+    for (size_t i = 0; i < v_int_qs.size(); ++i) {
+        cout << v_int_qs[i] << (i < v_int_qs.size() - 1 ? ", " : "");
+    }
+    cout << " }" << endl;
+
+
+    // --- Prueba 2: Vector de Flotantes (float) ---
+    vector<float> v_float_qs = {9.81f, 3.14f, 1.1f, 100.2f, 2.5f};
+    
+    cout << "Vector (Antes):  { ";
+    for (size_t i = 0; i < v_float_qs.size(); ++i) {
+        cout << v_float_qs[i] << (i < v_float_qs.size() - 1 ? ", " : "");
+    }
+    cout << " }" << endl;
+
+    QuickSort(v_float_qs, 0, v_float_qs.size() - 1);
+    
+    cout << "Vector (Despues): { ";
+    for (size_t i = 0; i < v_float_qs.size(); ++i) {
+        cout << v_float_qs[i] << (i < v_float_qs.size() - 1 ? ", " : "");
+    }
+    cout << " }" << endl;
+
+
+    // --- Prueba 3: Vector de Caracteres (char) ---
+    
+    vector<char> v_char_qs = {'z', 'f', 'h', 'a', 'k', 'c', 'd'};
+    
+    
+    cout << "Vector (Antes):  { ";
+    for (size_t i = 0; i < v_char_qs.size(); ++i) {
+        cout << v_char_qs[i] << (i < v_char_qs.size() - 1 ? ", " : "");
+    }
+    cout << " }" << endl;
+
+    QuickSort(v_char_qs, 0, v_char_qs.size() - 1);
+    
+    
+    cout << "Vector (Despues): { ";
+    for (size_t i = 0; i < v_char_qs.size(); ++i) {
+        cout << v_char_qs[i] << (i < v_char_qs.size() - 1 ? ", " : "");
+    }
+    cout << " }" << endl;
+
     return 0;
 }
