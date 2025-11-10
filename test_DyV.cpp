@@ -41,6 +41,38 @@ int main() {
     // Buscar 'b' (no existe)
     int pos5 = BusquedaBinaria('b', v_chars, 0, fin_chars);
     cout << "Buscando 'b': Posicion " << pos5 << endl; // Esperado: -1
+	
+    cout << "\n\n--- PRUEBAS BUSQUEDA DESCENDENTE (INV) ---" << endl;
+
+    // --- Prueba 4: Vector Inverso de Enteros (int) ---
+    cout << "\n--- Prueba con Enteros (Descendente) ---" << endl;
+    vector<int> v_enteros_inv = {100, 90, 80, 70, 60};
+    int fin_enteros_inv = v_enteros_inv.size() - 1;
+
+    // Buscar 70 (en medio)
+    int pos6 = BusquedaBinaria_INV(70, v_enteros_inv, 0, fin_enteros_inv);
+    cout << "Buscando 70: Posicion " << pos6 << endl; // Esperado: 3
+
+    // Buscar 100 (primero)
+    int pos7 = BusquedaBinaria_INV(100, v_enteros_inv, 0, fin_enteros_inv);
+    cout << "Buscando 100: Posicion " << pos7 << endl; // Esperado: 0
+
+    // Buscar 40 (no existe)
+    int pos8 = BusquedaBinaria_INV(40, v_enteros_inv, 0, fin_enteros_inv);
+    cout << "Buscando 40: Posicion " << pos8 << endl; // Esperado: -1
+
+    // --- Prueba 5: Vector Inverso de Caracteres (char) ---
+    cout << "\n--- Prueba con Caracteres (Descendente) ---" << endl;
+    vector<char> v_chars_inv = {'z', 'x', 'w', 'v', 'a'};
+    int fin_chars_inv = v_chars_inv.size() - 1;
+
+    // Buscar 'w' (en medio)
+    int pos9 = BusquedaBinaria_INV('w', v_chars_inv, 0, fin_chars_inv);
+    cout << "Buscando 'w': Posicion " << pos9 << endl; // Esperado: 2
+
+    // Buscar 'y' (no existe)
+    int pos10 = BusquedaBinaria_INV('y', v_chars_inv, 0, fin_chars_inv);
+    cout << "Buscando 'y': Posicion " << pos10 << endl; // Esperado: -1
 
     return 0;
 }

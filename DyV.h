@@ -37,4 +37,32 @@ int BusquedaBinaria(const T& x, const std::vector<T>& v, int ini, int fin)
     }
 }
 
+template<typename T>
+int BusquedaBinaria_INV(const T& x, const std::vector<T>& v, int ini, int fin)
+{
+    // Caso Base (Fallo): Rango vacío
+    if (ini > fin) {
+        return -1;
+    }
+
+    // 1. Dividir
+    int mid = ini + (fin - ini) / 2;
+
+    // 2. Vencer
+
+    // Caso Base (Éxito): Encontrado
+    if (v[mid] == x) {
+        return mid;
+    }
+
+    // Si v[mid] > x, el valor x (que es más pequeño) está a la DERECHA
+    else if (v[mid] > x) {
+        return BusquedaBinaria_INV(x, v, mid + 1, fin);
+    }
+
+    // Si v[mid] < x, el valor x (que es más grande) está a la IZQUIERDA
+    else { // v[mid] < x
+        return BusquedaBinaria_INV(x, v, ini, mid - 1);
+    }
+}
 #endif // DYV_H
