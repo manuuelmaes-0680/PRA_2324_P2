@@ -3,7 +3,8 @@
 
 #include <vector> // Necesario para std::vector
 #include <utility> // Para poder usar std::swap
-
+#include <stdlib.h> //para rand() (n aleatorio)
+#include <time.h> // para time()
 
 template<typename T>
 int BusquedaBinaria(const T& x, const std::vector<T>& v, int ini, int fin)
@@ -118,6 +119,55 @@ void QuickSort(std::vector<T>& v, int ini, int fin){
     }
 }
 
+template<typename T>
+void QuickSort_PivoteIni(std::vector<T>& v, int ini, int fin){
+	if(ini<fin){
 
+	//cambiamos ini por fin para q ahora Partition coja el ini
+	
+	std::swap(v[ini],v[fin]);
+	
+	int pos_pivote = Partition(v, ini, fin);
 
+	QuickSort_PivoteIni(v, ini, pos_pivote - 1);
+	
+	QuickSort_PivoteIni(v, pos_pivote + 1, fin);
+	
+	}
+}
+
+template<typename T>
+void QuickSort_PivoteCentral(std::vector<T>& v, int ini, int fin) {
+    if (ini < fin) {
+
+        // El único cambio está aquí 
+        // 1. Calculamos la posición central
+        int pos_central = ini + (fin - ini) / 2;
+        // 2. Intercambiamos el elemento central con el último (fin).
+        std::swap(v[pos_central], v[fin]);
+                
+        int pos_pivote = Partition(v, ini, fin);
+
+        
+        QuickSort_PivoteCentral(v, ini, pos_pivote - 1);
+        QuickSort_PivoteCentral(v, pos_pivote + 1, fin);
+    }
+}
+
+template<typename T>
+void QuickSort_PivoteRandom(std::vector<T>& v, int ini, int fin) {
+    if (ini < fin) {
+
+        // El único cambio está aquí
+        // 1. Calculamos una posición aleatoria entre [ini, fin]
+        int pos_aleatoria = ini + rand() % (fin - ini + 1);
+        // 2. Intercambiamos el elemento aleatorio con el último (fin).
+        std::swap(v[pos_aleatoria], v[fin]);
+        
+        int pos_pivote = Partition(v, ini, fin);
+
+        QuickSort_PivoteRandom(v, ini, pos_pivote - 1);
+        QuickSort_PivoteRandom(v, pos_pivote + 1, fin);
+    }
+}
 #endif // DYV_H
